@@ -8,6 +8,9 @@ pygame.init()
 #create the screen
 screen = pygame.display.set_mode((800,600))
 
+#background
+bgImg = pygame.image.load('bg.jpg')
+
 #title and icon
 pygame.display.set_caption("Space Invasion")
 icon = pygame.image.load('ship.bmp')
@@ -53,6 +56,9 @@ textY =10
 
 #game over
 over_font = pygame.font.Font('freesansbold.ttf', 64)
+
+def bg(x,y):
+	screen.blit(bgImg, (x,y))
 
 def game_over_text(x, y):
 	over_text = over_font.render("GAME OVER" ,True, (255,255,255))
@@ -116,6 +122,7 @@ while running:
 				playerY_change = 0	
 
 	screen.fill((0,0,0))
+	bg(0,0)
 	
 	playerX += playerX_change
 	playerY += playerY_change
